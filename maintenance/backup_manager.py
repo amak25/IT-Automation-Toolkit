@@ -13,18 +13,18 @@ def create_backup():
     if not os.path.exists(BACKUP_FOLDER):
         os.makedirs(BACKUP_FOLDER)
 
-    # Generate a timestamped filename (e.g., backup_2023-10-24)
+    # Generate a timestamped filename (e.g., backup_2025-10-24)
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
     backup_filename = f"backup_{timestamp}"
     
     # Create the zip file
     # shutil.make_archive(base_name, format, root_dir)
     shutil.make_archive(os.path.join(BACKUP_FOLDER, backup_filename), 'zip', SOURCE_FOLDER)
-    print(f"✅ Backup created: {backup_filename}.zip")
+    print(f"Backup created: {backup_filename}.zip")
 
 def prune_old_backups():
     """Deletes backups older than RETENTION_DAYS."""
-    print(f"🔎 Checking for backups older than {RETENTION_DAYS} days...")
+    print(f"Checking for backups older than {RETENTION_DAYS} days...")
     
     current_time = datetime.datetime.now().timestamp()
     
@@ -38,9 +38,9 @@ def prune_old_backups():
             
             if age_in_days > RETENTION_DAYS:
                 os.remove(file_path)
-                print(f"🗑️ DELETED (Expired): {filename}")
+                print(f"DELETED (Expired): {filename}")
             else:
-                print(f"🛡️ KEPT (Recent): {filename}")
+                print(f"KEPT (Recent): {filename}")
 
 if __name__ == "__main__":
     # Create a dummy folder to backup if it doesn't exist (just for testing)
