@@ -3,7 +3,6 @@ import random
 import string
 import datetime
 
-# 1. Setup: Define where your input data comes from
 INPUT_FILE = 'new_hires.csv'
 LOG_FILE = 'onboarding_log.txt'
 
@@ -19,18 +18,16 @@ def create_username(first_name, last_name):
 def process_new_hires():
     print(f"--- Starting Onboarding Process: {datetime.datetime.now()} ---")
     
-    # 2. Input: Read the CSV file
     try:
         with open(INPUT_FILE, mode='r') as file:
             reader = csv.DictReader(file)
             
-            # 3. Process: Loop through each employee
+
             for row in reader:
                 f_name = row['FirstName'].strip()
                 l_name = row['LastName'].strip()
                 dept = row['Department'].strip()
                 
-                # Generate details
                 username = create_username(f_name, l_name)
                 temp_password = generate_password()
                 

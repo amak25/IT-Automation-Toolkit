@@ -1,7 +1,6 @@
 import re
 import datetime
 
-# --- CONFIGURATION ---
 INPUT_LOG = 'server.log'
 OUTPUT_REPORT = 'error_report.txt'
 
@@ -15,15 +14,12 @@ def parse_logs():
     try:
         with open(INPUT_LOG, 'r') as file:
             for line in file:
-                # 1. Use Regex or string matching to find issues
-                # We are looking for lines containing "ERROR" or "CRITICAL"
                 if "ERROR" in line or "CRITICAL" in line:
                     error_count += 1
                     critical_events.append(line.strip())
                 elif "WARNING" in line:
                     warning_count += 1
         
-        # 2. Generate a summary report
         generate_report(error_count, warning_count, critical_events)
         
     except FileNotFoundError:
@@ -52,4 +48,3 @@ def generate_report(errors, warnings, events):
 
 if __name__ == "__main__":
     parse_logs()
-    
