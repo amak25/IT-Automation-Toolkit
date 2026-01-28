@@ -24,7 +24,7 @@ This script simulates the account creation process for new employees. It process
 * Error Handling: Accounts for errors and handles missing input files or bad data formats.
 
 ### How to Run
-1.  Clone the repository:**
+1.  Clone the repository:
     ```bash
     git clone [https://github.com/amak25/IT-Automation-Toolkit.git](https://github.com/amak25/IT-Automation-Toolkit.git)
     cd IT-Automation-Toolkit/onboarding
